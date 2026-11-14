@@ -40,7 +40,7 @@ function Index() {
     : q.isError ? <div role="alert" className="border-l-4 border-destructive bg-destructive/10 p-6 text-sm"><p className="font-semibold text-destructive">No se pudieron cargar los datos.</p><p className="mt-2 break-words font-mono text-xs text-foreground">{q.error.message}</p><Button className="mt-4" variant="outline" onClick={() => q.refetch()} disabled={q.isFetching}>{q.isFetching ? "Reintentando…" : "Reintentar"}</Button></div>
     : <>
       <section className="mb-8 grid gap-3 sm:grid-cols-2" aria-label="Filtros">
-        <Filter label="Horizonte" value={horizonte} onChange={setHorizonte} options={[["todos", "Todos los horizontes"], ...HORIZONTES.map((h) => [h, h[0]!.toUpperCase() + h.slice(1)] as [string, string])]} />
+        <Filter label="Horizonte" value={horizonte} onChange={setHorizonte} options={[["todos", "Todos los horizontes"], ...HORIZONTES.map((h) => [h, h.charAt(0).toUpperCase() + h.slice(1)] as [string, string])]} />
         <Filter label="Categoría" value={categoria} onChange={setCategoria} options={[["todas", "Todas las categorías"], ...categorias.map((c) => [c, c] as [string, string])]} />
       </section>
       <section className="mb-10 grid grid-cols-2 border-y lg:grid-cols-4" aria-label="Indicadores">
