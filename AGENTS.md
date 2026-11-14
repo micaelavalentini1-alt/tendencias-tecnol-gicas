@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Load the public CSV in the browser through React Query with retries disabled and a bounded fetch timeout so failures show an actionable error instead of an indefinite loading state.
+- Keep dashboard filtering and aggregation in browser-safe pure helpers, shared by all Recharts views and unit tests, so each view uses the same filtered rows.
