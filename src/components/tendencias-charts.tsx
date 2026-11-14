@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, ScatterChart, Scatter, PieChart, Pie, Cell, Legend } from "recharts";
 import type { Tendencia } from "@/lib/tendencias";
 import { HORIZONTES, horizonteDe, ordenarPorBrecha, agruparHorizontes, agruparConfianza } from "@/lib/dashboard";
@@ -16,7 +17,7 @@ export function TendenciasCharts({ rows }: { rows: Tendencia[] }) {
     <section className="border-b pb-8" aria-label="Adopción y potencial">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3"><h2 className="font-display text-xl font-semibold">Adopción y potencial</h2><div className="flex gap-5 text-xs text-muted-foreground"><span className="flex items-center gap-2"><i className="h-2.5 w-2.5 bg-primary" />Adopción hoy</span><span className="flex items-center gap-2"><i className="h-2.5 w-2.5 bg-comparison" />Potencial</span></div></div>
       <div className="max-h-[540px] overflow-y-auto overflow-x-hidden border-y bg-card py-3">
-        <div className="h-[var(--chart-height)] min-h-64 w-full" style={{ "--chart-height": `${Math.max(280, sorted.length * 64)}px` } as React.CSSProperties}>
+        <div className="h-[var(--chart-height)] min-h-64 w-full" style={{ "--chart-height": `${Math.max(280, sorted.length * 64)}px` } as CSSProperties}>
           <ResponsiveContainer width="100%" height="100%"><BarChart data={sorted} layout="vertical" margin={{ top: 4, right: 22, left: 0, bottom: 4 }} barGap={3}>
             <CartesianGrid stroke="var(--border)" horizontal={false} />
             <XAxis type="number" domain={[0, 'dataMax']} tick={axis} allowDecimals={false} />
