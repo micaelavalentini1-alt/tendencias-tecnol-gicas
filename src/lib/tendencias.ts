@@ -14,7 +14,7 @@ const NUM = ["madurez_TRL", "adopcion_hoy", "potencial", "brecha"] as const;
 export function parseTendencias(csv: string): Tendencia[] {
   const res = Papa.parse<Record<string, string>>(csv, { header: true, skipEmptyLines: true });
   return res.data
-    .filter((r) => r.tendencia?.trim())
+    .filter((r) => r["tendencia"]?.trim())
     .map((r) => {
       const o: Record<string, unknown> = { ...r };
       for (const k of NUM) { const n = Number(String(r[k] ?? "").replace(",", ".")); o[k] = Number.isFinite(n) ? n : 0; }
