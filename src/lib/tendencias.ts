@@ -20,7 +20,7 @@ export function parseTendencias(csv: string): Tendencia[] {
     .map((r) => {
       const o: Record<string, unknown> = { ...r };
       for (const k of NUM) { const n = Number(String(r[k] ?? "").replace(",", ".")); o[k] = Number.isFinite(n) ? n : 0; }
-      if (!r.brecha?.trim()) o.brecha = Number(o.potencial) - Number(o.adopcion_hoy);
+      if (!r["brecha"]?.trim()) o["brecha"] = Number(o["potencial"]) - Number(o["adopcion_hoy"]);
       return o as Tendencia;
     });
 }
